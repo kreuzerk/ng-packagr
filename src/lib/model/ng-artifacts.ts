@@ -1,4 +1,6 @@
-/** Generated build artifacts for an Angular library. */
+/**
+ * Binaries (build artifacts) of an Angular library.
+ */
 export interface NgArtifacts {
 
   /** Main JavaScript bundle in UMD (universal-module definition) and ES5 syntax. */
@@ -15,4 +17,11 @@ export interface NgArtifacts {
 
   /** Ahead-of-Time metadata (`.metadata.json`) file. */
   metadata: string;
+
+  /** Temporary files. */
+  temp?: { [key: string]: any };
+
+  /** Extra data such as tsconfig passed between step. */
+  extras?: { [key: string]: any };
+
 }

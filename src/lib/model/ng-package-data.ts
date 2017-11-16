@@ -5,6 +5,8 @@ export const SCOPE_PREFIX = '@';
 export const SCOPE_NAME_SEPARATOR = '/';
 export const DEFAULT_BUILD_FOLDER = '.ng_pkg_build';
 
+// TODO: this is obviously stuff derived from 'ng-package.json'
+// TODO: use @ngtools/json-schema to parse the JSON configuration
 export class NgPackageData {
   public readonly pathOffsetFromSourceRoot: string;
   public readonly fullPackageName: string;
@@ -74,4 +76,3 @@ export class NgPackageData {
     this.buildDirectory = path.resolve(this.rootSourcePath, DEFAULT_BUILD_FOLDER, packageBuildFolderName);
   }
 }
-

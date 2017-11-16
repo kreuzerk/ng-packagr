@@ -24,17 +24,3 @@ export async function remapSourceMap(sourceFile: string): Promise<void> {
 
   await chain.write(opts);
 }
-
-/**
- * Relocates the source `.map` file's relative root file paths to the module's name.
- *
- * @param ngPkg Angular package data
- */
-export async function relocateSourceMapRoot(ngPkg: NgPackageData): Promise<void> {
-  const replaceValue: string = `~/${ngPkg.fullPackageName}`;
-  await modifyJsonFiles(`${ngPkg.buildDirectory}/**/*.js.map`, (sourceMap: any): any => {
-    sourceMap.sources = sourceMap.sources
-      .map((path: string): string => path.replace('../ts', replaceValue));
-    return sourceMap;
-  });
-}
